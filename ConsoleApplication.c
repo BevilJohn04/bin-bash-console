@@ -77,16 +77,16 @@ int main() {
 
 //------------------------------------------------------------
 char* lookupPath(char** argv, char** dir) {
-	/*This function searches tge directories identified by the dir
+	/*This function searches the directories identified by the dir
 	argument to see if argv[0] (the file name) appears there.
-	Allocate a new string, place the full path name in it, then return the string.
+	Allocates a new string, place the full path name in it, then returns the string.
 	*/
 	char* result;
 	char pName[MAX_PATH_LEN];
 	
 
 	result = (char*)malloc(sizeof(char) * MAX_PATH_LEN);
-	//Check to see if the file name is already an absolute path name
+	//Checks to see if the file name is already an absolute path name
 	if (*argv[0] == '/') {
 		strcpy(result, argv[0]);
 		return result;
@@ -117,9 +117,9 @@ char* lookupPath(char** argv, char** dir) {
 }
 //------------------------------------------------------------
 int parseCommand(char* cmdLine, struct command_t* command) {
-	/*Determine command name and construct the parameter list.
-	Thist function will build argv[] and set the argn value.
-	argv[] will be the array of obtained "tokens", ending with NULL and
+	/*Determines command name and constructs the parameter list.
+	This function will build argv[] and set the argn value.
+	argv[] will be the array of obtained "tokens" from user input, ending with NULL and
 	argn being the number of tokens*/
 	int argn = 0;
 	char * buffer;
@@ -136,8 +136,7 @@ int parseCommand(char* cmdLine, struct command_t* command) {
 int parsePath(char* dirs[]) {
 	/*This function reads the PATH variable for this
 	enviorment, then builds an array of the directories
-	in dirs[].
-	*/
+	in dirs[].*/
 	char* pathEnvVar;
 	char* thePath;
 	int parsedTokens;
